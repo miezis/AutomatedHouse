@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedHouse.WebApi", "AutomatedHouse.WebApi\AutomatedHouse.WebApi.csproj", "{0CEA2845-1178-479B-8EFC-187F96B17542}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{CD36A123-1827-45E1-911C-E1E2F0DDF08B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{AF0CED31-1343-49AD-9B8E-4B661E8202A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CDC71688-A6A5-4FA1-99F1-673EAE8011B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedHouse.ServiceContracts", "AutomatedHouse.ServiceContracts\AutomatedHouse.ServiceContracts.csproj", "{2FD77D63-FEF0-4647-9594-C31833E7AF3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedHouse.Services", "AutomatedHouse.Services\AutomatedHouse.Services.csproj", "{5BF90940-3A10-4B58-8906-815627995039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedHouse.Data", "AutomatedHouse.Data\AutomatedHouse.Data.csproj", "{474A9DD3-A1AB-4E24-B535-84AF85A0A3AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedHouse.DataContracts", "AutomatedHouse.DataContracts\AutomatedHouse.DataContracts.csproj", "{13734796-0A94-4187-AC55-247CD3362E12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedHouse.DataEntities", "AutomatedHouse.DataEntities\AutomatedHouse.DataEntities.csproj", "{1D5106F2-E6A0-4F69-B19D-28C5C9146CB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0CEA2845-1178-479B-8EFC-187F96B17542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEA2845-1178-479B-8EFC-187F96B17542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEA2845-1178-479B-8EFC-187F96B17542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEA2845-1178-479B-8EFC-187F96B17542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD77D63-FEF0-4647-9594-C31833E7AF3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD77D63-FEF0-4647-9594-C31833E7AF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD77D63-FEF0-4647-9594-C31833E7AF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD77D63-FEF0-4647-9594-C31833E7AF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF90940-3A10-4B58-8906-815627995039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF90940-3A10-4B58-8906-815627995039}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF90940-3A10-4B58-8906-815627995039}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF90940-3A10-4B58-8906-815627995039}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474A9DD3-A1AB-4E24-B535-84AF85A0A3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474A9DD3-A1AB-4E24-B535-84AF85A0A3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474A9DD3-A1AB-4E24-B535-84AF85A0A3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474A9DD3-A1AB-4E24-B535-84AF85A0A3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13734796-0A94-4187-AC55-247CD3362E12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13734796-0A94-4187-AC55-247CD3362E12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13734796-0A94-4187-AC55-247CD3362E12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13734796-0A94-4187-AC55-247CD3362E12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D5106F2-E6A0-4F69-B19D-28C5C9146CB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5106F2-E6A0-4F69-B19D-28C5C9146CB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5106F2-E6A0-4F69-B19D-28C5C9146CB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5106F2-E6A0-4F69-B19D-28C5C9146CB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CEA2845-1178-479B-8EFC-187F96B17542} = {CDC71688-A6A5-4FA1-99F1-673EAE8011B5}
+		{2FD77D63-FEF0-4647-9594-C31833E7AF3B} = {CD36A123-1827-45E1-911C-E1E2F0DDF08B}
+		{5BF90940-3A10-4B58-8906-815627995039} = {CD36A123-1827-45E1-911C-E1E2F0DDF08B}
+		{474A9DD3-A1AB-4E24-B535-84AF85A0A3AA} = {AF0CED31-1343-49AD-9B8E-4B661E8202A3}
+		{13734796-0A94-4187-AC55-247CD3362E12} = {AF0CED31-1343-49AD-9B8E-4B661E8202A3}
+		{1D5106F2-E6A0-4F69-B19D-28C5C9146CB5} = {AF0CED31-1343-49AD-9B8E-4B661E8202A3}
+	EndGlobalSection
+EndGlobal
