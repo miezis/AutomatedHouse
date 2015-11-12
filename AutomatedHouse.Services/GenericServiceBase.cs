@@ -24,7 +24,7 @@ namespace AutomatedHouse.Services
 
         public virtual void Delete(TEntity entity)
         {
-            Repository.Add(entity);
+            Repository.Delete(entity);
         }
 
         public virtual void Update(TEntity entity)
