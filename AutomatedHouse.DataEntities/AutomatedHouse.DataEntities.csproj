@@ -46,6 +46,10 @@
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\Sensor.cs" />
     <Compile Include="Entities\Service.cs" />
+    <Compile Include="Enums\AccessoryType.cs" />
+    <Compile Include="Enums\SensorType.cs" />
+    <Compile Include="Enums\ServiceType.cs" />
+    <Compile Include="Enums\Status.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

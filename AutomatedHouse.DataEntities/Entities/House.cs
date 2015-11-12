@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace AutomatedHouse.DataEntities.Entities
 {
     public class House : EntityBase
     {
+        public string Name { get; set; }
+        public string ApiKey { get; set; }
+        public IList<Room> Rooms { get; set; }
     }
 }

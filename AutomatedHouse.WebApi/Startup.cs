@@ -12,7 +12,6 @@ namespace AutomatedHouse.WebApi
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
         }
     }
 }
