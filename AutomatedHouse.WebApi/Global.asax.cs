@@ -21,5 +21,10 @@ namespace AutomatedHouse.WebApi
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutofacConfig.RegisterComponents();
         }
+
+        protected void Application_Error()
+        {
+            
+        }
     }
 }
