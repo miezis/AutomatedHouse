@@ -3,13 +3,20 @@ var eslint = require('gulp-eslint');
 var webpack = require('webpack-stream');
 var argv = require('yargs').argv;
 var run = require('run-sequence');
+var mincss = require('gulp-minify-css');
+var concatcss = require('gulp-concat-css');
 
 var jsFiles = [
     './Scripts/app/*.js'
 ];
 
+var cssFiles = [
+    './Content/*.css'
+];
+
 gulp.task('eslint', eslintTask);
 gulp.task('build-js', bundleJSTask);
+gulp.task('build-css', bundleCSSTask);
 gulp.task('watch', watchTask);
 gulp.task('build', buildTask);
 
@@ -45,8 +52,24 @@ function bundleJSTask() {
         .pipe(gulp.dest('./Scripts/dist'));
 }
 
+function bundleCSSTask() {
+    var dev = argv.d || argv.dev;
+
+    if (dev) {
+        return gulp.src(cssFiles)
+            .pipe(concatcss('bundle.css'))
+            .pipe(gulp.dest('./Content/dist'));
+    }
+
+    return gulp.src(cssFiles)
+        .pipe(concatcss('bundle.css'))
+        .pipe(mincss())
+        .pipe(gulp.dest('./Content/dist'));
+}
+
 function watchTask() {
     gulp.watch(jsFiles, ['build-js']);
+    gulp.watch(cssFiles, ['build-css']);
 }
 
 function buildTask(done) {
@@ -58,6 +81,7 @@ function buildTask(done) {
         run(
             'eslint',
             'build-js',
+            'build-css',
             'watch',
             done
         );
@@ -65,6 +89,7 @@ function buildTask(done) {
         run(
             'eslint',
             'build-js',
+            'build-css',
             done
         );
     }
