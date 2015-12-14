@@ -1,4 +1,6 @@
-﻿var gulp = require('gulp');
+﻿require('babel-core/register');
+
+var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var webpack = require('webpack-stream');
 var argv = require('yargs').argv;
@@ -33,6 +35,11 @@ function bundleJSTask() {
 
     var options = {
         watch: false,
+        module: {
+            loaders: [
+                {test: /\.jsx?/, exclude: /node_modules/, loader: 'babel'}
+            ]
+        },
         plugins: [],
         output: { filename: 'index.js' },
         devtool: 'source-map'
@@ -74,8 +81,6 @@ function watchTask() {
 
 function buildTask(done) {
     var dev = argv.d || argv.dev;
-
-    console.log(dev);
 
     if (dev) {
         run(

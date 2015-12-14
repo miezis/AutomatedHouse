@@ -17,20 +17,37 @@
   },
   "homepage": "https://github.com/miezis/AutomatedHouse#readme",
   "devDependencies": {
+    "babel-core": "^6.3.17",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-class-properties": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "eslint": "^1.10.2",
+    "eslint-plugin-react": "^3.11.3",
     "gulp": "^3.9.0",
     "gulp-concat-css": "^2.2.0",
     "gulp-eslint": "^1.1.1",
     "gulp-minify-css": "^1.2.2",
+    "history": "^1.13.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.2",
     "run-sequence": "^1.1.5",
+    "webpack": "^1.12.9",
     "webpack-stream": "2.1.1",
     "yargs": "^3.30.0"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "ecmaFeatures": {
       "objectLiteralDuplicateProperties": false,
-      "modules": true
+      "modules": true,
+      "jsx": true
     },
+    "plugins": [
+      "react"
+    ],
     "rules": {
       "arrow-parens": 1,
       "brace-style": [
@@ -72,7 +89,7 @@
       "no-regex-spaces": 2,
       "no-shadow": 2,
       "no-sparse-arrays": 2,
-      "no-undef": 2,
+      "no-undef": 1,
       "no-unneeded-ternary": 1,
       "no-underscore-dangle": 0,
       "no-unexpected-multiline": 2,
@@ -91,7 +108,9 @@
     },
     "env": {
       "browser": true,
-      "node": true
+      "node": true,
+      "es6": true,
+      "mocha": true
     }
   }
 }
