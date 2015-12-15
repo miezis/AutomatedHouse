@@ -20,17 +20,3 @@ class HousesStore {
 }
  
 export default app.createStore(HousesStore, 'HousesStore');
-
-/*class LocationStore {
-  constructor() {
-    this.locations = [];
-
-    this.bindListeners({
-      handleUpdateLocations: LocationActions.UPDATE_LOCATIONS
-    });
-  }
-
-  handleUpdateLocations(locations) {
-    this.locations = locations;
-  }
-}*/

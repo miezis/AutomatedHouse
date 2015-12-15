@@ -1,32 +1,26 @@
 import react from 'react';
 import HouseActions from './HousesActions';
 import HousesStore from './HousesStore';
- 
+import connectToStores from 'alt/utils/connectToStores';
+
+@connectToStores
 class Houses extends react.Component {
-  constructor() {
-    super();
-    this.state = HousesStore.getState();
+  constructor(props) {
+    super(props);
   }
 
-  componentDidMount() {
-    HousesStore.listen(this.onChange.bind(this));
+  static getStores(props) {
+    return [HousesStore];
   }
 
-  componentWillUnmount() {
-    HousesStore.unlisten(this.onChange.bind(this));
-  }
-
-  onChange(state) {
-    this.setState(state);
+  static getPropsFromStores(props) {
+    return HousesStore.getState();
   }
  
   render() {
-    setTimeout(() => {
-      HouseActions.updateHouse();
-    }, 2000);
     return (
       <div>
-        <p>{this.state.house.name}</p>
+        <p>{this.props.house.name}</p>
       </div>
     );
   }
