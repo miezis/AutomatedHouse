@@ -33,12 +33,16 @@
     "gulp-eslint": "^1.1.1",
     "gulp-minify-css": "^1.2.2",
     "history": "^1.13.1",
+    "lodash": "^3.10.1",
     "react": "^0.14.3",
+    "react-document-title": "^2.0.1",
     "react-dom": "^0.14.3",
     "react-router": "^1.0.2",
     "run-sequence": "^1.1.5",
+    "superagent": "^1.5.0",
     "webpack": "^1.12.9",
     "webpack-stream": "2.1.1",
+    "when": "^3.7.5",
     "yargs": "^3.30.0"
   },
   "eslintConfig": {

@@ -1,9 +1,19 @@
 import app from '../../App';
+import http from '../../utils/http';
  
 class HousesActions {
-  updateHouse() {
-  	this.dispatch({ name: 'Random House' });
-  }
+	getHouses() {
+		http.get('/house')
+			.then((response) => {
+				if (!!response) {
+					this.dispatch(response);
+				}
+			});
+	}
+
+	updateHouse() {
+		this.dispatch({ name: 'Random House' });
+	}
 }
  
 export default app.createActions(HousesActions);

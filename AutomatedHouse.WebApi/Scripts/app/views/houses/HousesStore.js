@@ -4,18 +4,16 @@ import HousesActions from './HousesActions';
 class HousesStore {
   constructor() {
     this.bindListeners({
-      updateHouse: HousesActions.UPDATE_HOUSE
+      getHouses: HousesActions.GET_HOUSES
     });
  
     this.state = {
-      house: {
-        name: 'Primary House'
-      }
+      houses: []
     };
   }
- 
-  updateHouse(house) {
-    this.setState({ house: house });
+
+  getHouses(houses) {
+    this.setState({houses});
   }
 }
  
