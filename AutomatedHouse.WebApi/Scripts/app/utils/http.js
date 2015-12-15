@@ -67,7 +67,7 @@ function handleResponse(deferred) {
             return;
         }
 
-        deferred.resolve(res.body);
+        deferred.resolve(res);
     };
 }
 

@@ -5,8 +5,8 @@ class HousesActions {
 	getHouses() {
 		http.get('/house')
 			.then((response) => {
-				if (!!response) {
-					this.dispatch(response);
+				if (response.statusCode === 200) {
+					this.dispatch(response.body);
 				}
 			});
 	}
