@@ -9,7 +9,7 @@ var mincss = require('gulp-minify-css');
 var concatcss = require('gulp-concat-css');
 
 var jsFiles = [
-    './Scripts/app/*.js'
+    './Scripts/app/**/*.js'
 ];
 
 var cssFiles = [
