@@ -6,6 +6,5 @@ namespace AutomatedHouse.DataEntities.Entities
     {
         public string Name { get; set; }
         public string ApiKey { get; set; }
-        public IList<Room> Rooms { get; set; }
     }
 }

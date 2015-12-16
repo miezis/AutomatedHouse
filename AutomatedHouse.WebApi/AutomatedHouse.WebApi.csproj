@@ -232,6 +232,10 @@
     <Compile Include="Migrations\201512161818250_ChangingForeignKeyDefinition.Designer.cs">
       <DependentUpon>201512161818250_ChangingForeignKeyDefinition.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512162237113_FixedRelations.cs" />
+    <Compile Include="Migrations\201512162237113_FixedRelations.Designer.cs">
+      <DependentUpon>201512162237113_FixedRelations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -344,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512161818250_ChangingForeignKeyDefinition.resx">
       <DependentUpon>201512161818250_ChangingForeignKeyDefinition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512162237113_FixedRelations.resx">
+      <DependentUpon>201512162237113_FixedRelations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
