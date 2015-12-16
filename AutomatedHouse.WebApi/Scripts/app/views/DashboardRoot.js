@@ -8,7 +8,7 @@ class DashboardRoot extends react.Component {
 
 	render() {
 		return (
-			<div class="countainer-fluid">
+			<div className="countainer-fluid">
 				<DocumentTitle title="Dashboard" />
 				<Navbar />
 				{this.props.children}

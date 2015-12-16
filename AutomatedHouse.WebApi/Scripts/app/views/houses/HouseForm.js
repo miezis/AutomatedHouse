@@ -13,10 +13,12 @@ class HouseForm extends react.Component {
     return (
       <form onSubmit={this.submitForm.bind(this)}>
         <div className="form-group">
-          <input type="text" ref={(ref) => this.nameInput = ref} defaultValue={props.name} />
+          <label for="name">House Name</label>
+          <input id="name" className="form-control" type="text" ref={(ref) => this.nameInput = ref} defaultValue={props.name} />
         </div>
         <div className="form-group">
-          <input type="text" ref={(ref) => this.apiKeyInput = ref} defaultValue={props.apiKey} />
+          <label for="apiKey">API Key</label>
+          <input id="apiKey" className="form-control" type="text" ref={(ref) => this.apiKeyInput = ref} defaultValue={props.apiKey} />
         </div>
         <button className="btn btn-default" type="submit">Create</button>
       </form>

@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import react from 'react';
+import {Link} from 'react-router';
 import DocumentTitle from 'react-document-title';
 import connectToStores from 'alt/utils/connectToStores';
 
@@ -40,7 +41,7 @@ class Houses extends react.Component {
         <div className="col-xs-4" key={house.Id}>
           <div className="panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title">{house.Name}</h3>
+              <Link to={`house/${house.Id}/rooms`}><h3 className="panel-title">{house.Name}</h3></Link>
             </div>
             <div className="panel-body">
               <p>API Key: {house.ApiKey ? house.ApiKey : 'Not Defined'}</p>
