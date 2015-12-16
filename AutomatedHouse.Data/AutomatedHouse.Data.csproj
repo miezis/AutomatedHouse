@@ -52,6 +52,7 @@
     <Compile Include="AutomatedHouseDbContext.cs" />
     <Compile Include="GenericRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AccessoryRepository.cs" />
     <Compile Include="Repositories\HouseRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
     <Compile Include="Repositories\SensorRepository.cs" />

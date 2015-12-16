@@ -20,6 +20,8 @@ class Rooms extends react.Component {
   render() {
     const props = this.props;
 
+    console.log(props.sensors);
+
     return (
       <div>
         <DocumentTitle title="Rooms"/>

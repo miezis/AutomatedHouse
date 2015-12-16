@@ -8,12 +8,13 @@ class RoomsStore {
     });
  
     this.state = {
-      rooms: []
+      rooms: [],
+      sensors: []
     };
   }
 
-  gotRooms(rooms) {
-    this.setState({rooms});
+  gotRooms(payload) {
+    this.setState(payload);
   }
 }
  

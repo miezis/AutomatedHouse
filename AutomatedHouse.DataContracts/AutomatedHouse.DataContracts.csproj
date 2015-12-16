@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAccessoryRepository.cs" />
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="IHouseRepository.cs" />
     <Compile Include="IRoomRepository.cs" />
