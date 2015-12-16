@@ -3,16 +3,12 @@ import http from '../../utils/http';
  
 class HousesActions {
 	getHouses() {
-		http.get('/house')
+		http.get('/houses')
 			.then((response) => {
 				if (response.statusCode === 200) {
 					this.dispatch(response.body);
 				}
 			});
-	}
-
-	updateHouse() {
-		this.dispatch({ name: 'Random House' });
 	}
 }
  

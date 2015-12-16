@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="IHouseRepository.cs" />
+    <Compile Include="IRoomRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

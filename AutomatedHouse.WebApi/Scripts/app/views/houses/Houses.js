@@ -38,7 +38,7 @@ class Houses extends react.Component {
     }
 
     return _.map(houses, (house) => (
-        <div className='house-card' key={house.Id}>
+        <div className="house-card" key={house.Id}>
           <p>Name: {house.Name}</p>
           <p>Rooms: {house.rooms ? house.Rooms.length : 0}</p>
         </div>

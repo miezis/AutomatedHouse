@@ -14,7 +14,7 @@ namespace AutomatedHouse.WebApi
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 "Default",
-                "",
+                "{*url}",
                 new { controller = "Home", action = "Index" }
             );
         }

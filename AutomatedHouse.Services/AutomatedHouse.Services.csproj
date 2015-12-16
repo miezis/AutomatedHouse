@@ -43,6 +43,7 @@
     <Compile Include="GenericServiceBase.cs" />
     <Compile Include="HouseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AutomatedHouse.DataContracts\AutomatedHouse.DataContracts.csproj">

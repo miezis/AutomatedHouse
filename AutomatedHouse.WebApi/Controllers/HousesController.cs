@@ -10,20 +10,17 @@ using NLog;
 
 namespace AutomatedHouse.WebApi.Controllers
 {
-    public class HouseController : ApiController
+    public class HousesController : ApiController
     {
         private readonly IHouseService _houseService;
 
-        public HouseController(IHouseService houseService)
+        public HousesController(IHouseService houseService)
         {
             _houseService = houseService;
         }
 
         public IHttpActionResult Get()
         {
-            var logger = LogManager.GetLogger("Naujas");
-            logger.Info("Got a get request");
-            
             return Ok(_houseService.GetAll());
         }
 
