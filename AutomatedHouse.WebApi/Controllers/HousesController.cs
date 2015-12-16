@@ -10,6 +10,7 @@ using NLog;
 
 namespace AutomatedHouse.WebApi.Controllers
 {
+    [RoutePrefix("api/houses")]
     public class HousesController : ApiController
     {
         private readonly IHouseService _houseService;
@@ -19,16 +20,36 @@ namespace AutomatedHouse.WebApi.Controllers
             _houseService = houseService;
         }
 
+        [Route("")]
+        [HttpGet]
         public IHttpActionResult Get()
         {
             return Ok(_houseService.GetAll());
         }
 
+        [Route("{houseId:int}")]
+        [HttpGet]
+        public IHttpActionResult GetById(int houseId)
+        {
+            var house = _houseService.GetById(houseId);
+
+            if (house == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(house);
+        }
+        
+        [Route("")]
+        [HttpPost]
         public IHttpActionResult Post(House house)
         {
             return Ok(_houseService.Add(house));
         }
-
+        
+        [Route("")]
+        [HttpPut]
         public IHttpActionResult Put(House house)
         {
             var houseToUpdate = _houseService.GetById(house.Id);
@@ -45,7 +66,9 @@ namespace AutomatedHouse.WebApi.Controllers
 
             return Ok(houseToUpdate);
         }
-
+        
+        [Route("")]
+        [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var house = _houseService.GetById(id);

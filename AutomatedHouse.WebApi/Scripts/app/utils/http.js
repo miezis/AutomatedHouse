@@ -26,7 +26,19 @@ const http = {
             .send(params)
             .end(handleResponse(deferred));
 
-        return deferred.promise;  
+        return deferred.promise;
+    },
+
+    'put': (url, params, options = {cache: false}) => {
+        const deferred = when.defer();
+
+        superagent
+            .put(normalizeUrl(url))
+            .set(getHeaders(options.cache))
+            .send(params)
+            .end(handleResponse(deferred));
+
+        return deferred.promise;
     },
 
     'delete': (url, params) => {

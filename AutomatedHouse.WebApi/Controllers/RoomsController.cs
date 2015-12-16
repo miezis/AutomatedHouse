@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net;
 using System.Web.Http;
+using System.Data.Entity;
 using AutomatedHouse.DataEntities.Entities;
 using AutomatedHouse.ServiceContracts;
 
 namespace AutomatedHouse.WebApi.Controllers
 {
+    [RoutePrefix("api/rooms")]
     public class RoomsController : ApiController
     {
         private readonly IRoomService _roomService;
@@ -18,7 +16,8 @@ namespace AutomatedHouse.WebApi.Controllers
             _roomService = roomService;
         }
 
-        public IHttpActionResult Get(int houseId)
+        [Route("{houseId:int}")]
+        public IHttpActionResult GetRoomsByHouseId(int houseId)
         {
             var rooms = _roomService.GetRoomsByHouseId(houseId);
 
@@ -30,11 +29,13 @@ namespace AutomatedHouse.WebApi.Controllers
             return Ok(rooms);
         }
 
+        [HttpPost]
         public IHttpActionResult Post(Room room)
         {
             return Ok(_roomService.Add(room));
         }
 
+        [HttpPut]
         public IHttpActionResult Put(Room room)
         {
             var roomToUpdate = _roomService.GetById(room.Id);
@@ -51,6 +52,7 @@ namespace AutomatedHouse.WebApi.Controllers
             return Ok(roomToUpdate);
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(int roomId)
         {
             var room = _roomService.GetById(roomId);

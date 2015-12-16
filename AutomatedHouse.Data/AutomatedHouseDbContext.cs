@@ -8,6 +8,7 @@ namespace AutomatedHouse.Data
         public AutomatedHouseDbContext()
             : base("DefaultConnection")
         {
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Accessory> Accessories { get; set; }

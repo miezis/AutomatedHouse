@@ -14,7 +14,7 @@ namespace AutomatedHouse.Data.Repositories
 
         public IEnumerable<Room> GetRoomsByHouseId(int houseId)
         {
-            return DbContext.Set<Room>().Where(u => u.House.Id == houseId);
+            return DbContext.Set<Room>().Where(u => u.House.Id == houseId).Include(u => u.House);
         }
     }
 }
