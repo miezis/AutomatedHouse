@@ -28,9 +28,11 @@ namespace AutomatedHouse.WebApi
 
             builder.RegisterType<HouseService>().As<IHouseService>().InstancePerLifetimeScope();
             builder.RegisterType<RoomService>().As<IRoomService>().InstancePerLifetimeScope();
+            builder.RegisterType<SensorService>().As<ISensorService>().InstancePerLifetimeScope();
 
             builder.RegisterType<HouseRepository>().As<IHouseRepository>().InstancePerLifetimeScope();
             builder.RegisterType<RoomRepository>().As<IRoomRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<SensorRepository>().As<ISensorRepository>().InstancePerLifetimeScope();
 
             var container = builder.Build();
 

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using AutomatedHouse.DataEntities.Entities;
 
-namespace AutomatedHouse.ServiceContracts
+namespace AutomatedHouse.DataContracts
 {
-    public interface ISensorService : IGenericServiceBase<Sensor>
+    public interface ISensorRepository : IGenericRepository<Sensor>
     {
         IEnumerable<Sensor> GetSensorsByHouseId(int houseId);
     }

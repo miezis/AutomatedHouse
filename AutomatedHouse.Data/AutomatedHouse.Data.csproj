@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\HouseRepository.cs" />
     <Compile Include="Repositories\RoomRepository.cs" />
+    <Compile Include="Repositories\SensorRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
