@@ -4,13 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Autofac.Core;
 using AutomatedHouse.DataEntities.Entities;
 using AutomatedHouse.ServiceContracts;
+using AutomatedHouse.WebApi.Models;
 using NLog;
 
 namespace AutomatedHouse.WebApi.Controllers
 {
-    [RoutePrefix("api/houses")]
+    [System.Web.Http.RoutePrefix("api/houses")]
     public class HousesController : ApiController
     {
         private readonly IHouseService _houseService;
@@ -20,15 +22,15 @@ namespace AutomatedHouse.WebApi.Controllers
             _houseService = houseService;
         }
 
-        [Route("")]
-        [HttpGet]
+        [System.Web.Http.Route("")]
+        [System.Web.Http.HttpGet]
         public IHttpActionResult Get()
         {
             return Ok(_houseService.GetAll());
         }
 
-        [Route("{houseId:int}")]
-        [HttpGet]
+        [System.Web.Http.Route("{houseId:int}")]
+        [System.Web.Http.HttpGet]
         public IHttpActionResult GetById(int houseId)
         {
             var house = _houseService.GetById(houseId);
@@ -40,16 +42,56 @@ namespace AutomatedHouse.WebApi.Controllers
 
             return Ok(house);
         }
+
+        [System.Web.Http.Route("info/{houseId:int}")]
+        [System.Web.Http.HttpGet]
+        public IHttpActionResult GetHouseInfoById(int houseId)
+        {
+            var dependencyResolver = GlobalConfiguration.Configuration.DependencyResolver;
+            var roomService = (IRoomService) dependencyResolver.GetService(typeof (IRoomService));
+            var accessoryService = (IAccessoryService)dependencyResolver.GetService(typeof (IAccessoryService));
+
+            var rooms = roomService.GetRoomsByHouseId(houseId).ToList();
+            var accessories = accessoryService.GetAccessoriesByHouseId(houseId).ToList();
+
+            var result = new HouseModel {rooms = new List<RoomModel>()};
+
+
+            foreach (var room in rooms)
+            {
+                var roomModel = new RoomModel();
+                var belongingAccessories = accessories.Where(u => u.RoomId == room.Id).ToList();
+
+                roomModel.accessories = new List<AccessoryModel>();
+
+                foreach (var accessory in belongingAccessories)
+                {
+                    var accessoryModel = new AccessoryModel
+                    {
+                        name = accessory.Name,
+                        pin = accessory.Pin,
+                        status = accessory.Status
+                    };
+
+
+                    roomModel.accessories.Add(accessoryModel);
+                }
+
+                result.rooms.Add(roomModel);
+            }
+
+            return Ok(result);
+        }
         
-        [Route("")]
-        [HttpPost]
+        [System.Web.Http.Route("")]
+        [System.Web.Http.HttpPost]
         public IHttpActionResult Post(House house)
         {
             return Ok(_houseService.Add(house));
         }
         
-        [Route("")]
-        [HttpPut]
+        [System.Web.Http.Route("")]
+        [System.Web.Http.HttpPut]
         public IHttpActionResult Put(House house)
         {
             var houseToUpdate = _houseService.GetById(house.Id);
@@ -67,8 +109,8 @@ namespace AutomatedHouse.WebApi.Controllers
             return Ok(houseToUpdate);
         }
         
-        [Route("")]
-        [HttpDelete]
+        [System.Web.Http.Route("")]
+        [System.Web.Http.HttpDelete]
         public IHttpActionResult Delete(int id)
         {
             var house = _houseService.GetById(id);
