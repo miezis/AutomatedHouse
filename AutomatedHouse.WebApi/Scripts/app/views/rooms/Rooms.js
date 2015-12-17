@@ -20,8 +20,6 @@ class Rooms extends react.Component {
   render() {
     const props = this.props;
 
-    console.log(props.sensors);
-
     return (
       <div>
         <DocumentTitle title="Rooms"/>
@@ -36,19 +34,17 @@ class Rooms extends react.Component {
     }
 
     return _.map(rooms, (room) => (
-      <div>
         <div className="col-xs-12" key={room.Id}>
           <div className="panel panel-default">
             <div className="panel-heading">
               <h3 className="panel-title">{room.Name}</h3>
             </div>
             <div className="panel-body">
-              <Accessories />
-              <Sensors />
+              <Accessories accessories={room.accessories} />
+              <Sensors sensors={room.sensors} />
             </div>
           </div>
         </div>
-      </div>
     ));
   }
 
