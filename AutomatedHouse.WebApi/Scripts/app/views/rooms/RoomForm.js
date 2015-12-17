@@ -1,8 +1,7 @@
 import _ from 'lodash';
 import react from 'react';
-import DocumentTitle from 'react-document-title';
 
-class HouseForm extends react.Component {
+class RoomForm extends react.Component {
   constructor(props) {
     super(props);
   }
@@ -16,10 +15,6 @@ class HouseForm extends react.Component {
           <label htmlFor="name">House Name</label>
           <input id="name" className="form-control" type="text" ref={(ref) => this.nameInput = ref} defaultValue={props.name} />
         </div>
-        <div className="form-group">
-          <label htmlFor="apiKey">API Key</label>
-          <input id="apiKey" className="form-control" type="text" ref={(ref) => this.apiKeyInput = ref} defaultValue={props.apiKey} />
-        </div>
         <button className="btn btn-default" type="submit">Create</button>
       </form>
     );
@@ -28,11 +23,8 @@ class HouseForm extends react.Component {
   submitForm(e) {
     e.preventDefault();
 
-    this.props.onSubmit({
-      name: this.nameInput.value,
-      apiKey: this.apiKeyInput.value
-    });
+    this.props.onSubmit(this.nameInput.value);
   }
 }
 
-export default HouseForm;
+export default RoomForm;

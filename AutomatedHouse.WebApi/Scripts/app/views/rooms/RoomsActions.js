@@ -22,6 +22,20 @@ class RoomsActions {
 				}
 			});
 	}
+
+	createRoom(payload) {
+		const params = {
+			Name: payload.name,
+			HouseId: payload.houseId
+		};
+
+		return http.post('/rooms', params)
+			.then((response) => {
+				if (response.statusCode === 200) {
+					return this.actions.getRooms(params.HouseId);
+				}
+			});
+	}
 }
  
 export default app.createActions(RoomsActions);
