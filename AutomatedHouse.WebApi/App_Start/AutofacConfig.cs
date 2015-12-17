@@ -18,6 +18,8 @@ namespace AutomatedHouse.WebApi
 {
     public class AutofacConfig
     {
+        public static IContainer Container { get; private set; }
+
         public static void RegisterComponents()
         {
             var builder = new ContainerBuilder();
@@ -36,7 +38,11 @@ namespace AutomatedHouse.WebApi
             builder.RegisterType<RoomRepository>().As<IRoomRepository>().InstancePerLifetimeScope();
             builder.RegisterType<SensorRepository>().As<ISensorRepository>().InstancePerLifetimeScope();
 
+
+
             var container = builder.Build();
+
+            Container = container;
 
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Autofac;
 using Autofac.Core;
 using AutomatedHouse.DataEntities.Entities;
 using AutomatedHouse.ServiceContracts;
@@ -16,10 +17,14 @@ namespace AutomatedHouse.WebApi.Controllers
     public class HousesController : ApiController
     {
         private readonly IHouseService _houseService;
+        private readonly IRoomService _roomService;
+        private readonly IAccessoryService _accessoryService;
 
-        public HousesController(IHouseService houseService)
+        public HousesController(IHouseService houseService, IRoomService roomService, IAccessoryService accessoryService)
         {
             _houseService = houseService;
+            _roomService = roomService;
+            _accessoryService = accessoryService;
         }
 
         [System.Web.Http.Route("")]
@@ -47,14 +52,10 @@ namespace AutomatedHouse.WebApi.Controllers
         [System.Web.Http.HttpGet]
         public IHttpActionResult GetHouseInfoById(int houseId)
         {
-            var dependencyResolver = GlobalConfiguration.Configuration.DependencyResolver;
-            var roomService = (IRoomService) dependencyResolver.GetService(typeof (IRoomService));
-            var accessoryService = (IAccessoryService)dependencyResolver.GetService(typeof (IAccessoryService));
+            var rooms = _roomService.GetRoomsByHouseId(houseId).ToList();
+            var accessories = _accessoryService.GetAccessoriesByHouseId(houseId).ToList();
 
-            var rooms = roomService.GetRoomsByHouseId(houseId).ToList();
-            var accessories = accessoryService.GetAccessoriesByHouseId(houseId).ToList();
-
-            var result = new HouseModel {rooms = new List<RoomModel>()};
+            var result = new HouseModel {id = houseId, rooms = new List<RoomModel>()};
 
 
             foreach (var room in rooms)
@@ -109,7 +110,7 @@ namespace AutomatedHouse.WebApi.Controllers
             return Ok(houseToUpdate);
         }
         
-        [System.Web.Http.Route("")]
+        [System.Web.Http.Route("{id:int}")]
         [System.Web.Http.HttpDelete]
         public IHttpActionResult Delete(int id)
         {

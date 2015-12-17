@@ -5,6 +5,7 @@ namespace AutomatedHouse.WebApi.Models
 {
     public class HouseModel
     {
+        public int id;
         public List<RoomModel> rooms;
     }
 

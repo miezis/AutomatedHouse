@@ -53,7 +53,7 @@ class Rooms extends react.Component {
               <h3 className="panel-title">{room.Name}</h3>
             </div>
             <div className="panel-body">
-              <Accessories accessories={room.accessories} />
+              <Accessories accessories={room.accessories} updateAccessory={this.updateAccessory.bind(this)} />
               <Sensors sensors={room.sensors} />
             </div>
           </div>
@@ -80,6 +80,10 @@ class Rooms extends react.Component {
 
     this.closeCreateModal();
     RoomsActions.createRoom(payload);
+  }
+
+  updateAccessory(accesorry) {
+    RoomsActions.updateAccessory(accesorry);
   }
 
   static getStores(props) {

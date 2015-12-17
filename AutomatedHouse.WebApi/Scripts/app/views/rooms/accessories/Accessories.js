@@ -27,7 +27,7 @@ class Accessories extends react.Component {
             </tr>
           </thead>
           <tbody>
-            {_.map(accessories, this.renderAccessory)}
+            {_.map(accessories, this.renderAccessory, this)}
           </tbody>
         </table>
       </div>
@@ -40,10 +40,18 @@ class Accessories extends react.Component {
         <td>{accessory.Id}</td>
         <td>{accessory.Name}</td>
         <td>{accessory.Type}</td>
-        <td>{accessory.Status === 0 ? 'OFF' : 'ON'}</td>
+        <td><p>{accessory.Status === 0 ? 'OFF' : 'ON'}</p><button onClick={this.toggleAccessory.bind(this, accessory)}>Toggle</button></td>
         <td>{accessory.Pin}</td>
       </tr>
     );
+  }
+
+  toggleAccessory(accessory, e) {
+    e.preventDefault();
+
+    accessory.Status = accessory.Status === 0 ? 1 : 0;
+
+    this.props.updateAccessory(accessory);
   }
 }
 

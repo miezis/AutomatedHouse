@@ -36,6 +36,15 @@ class RoomsActions {
 				}
 			});
 	}
+
+	updateAccessory(accessory) {
+		return http.put('/accessories', accessory)
+			.then((response) => {
+				if (response.statusCode === 200) {
+					return this.actions.getRooms(response.body.HouseId);
+				}
+			});
+	}
 }
  
 export default app.createActions(RoomsActions);
